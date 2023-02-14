@@ -19,3 +19,14 @@ export const coinsReducers = (state = initialState, action) => {
       return state;
   }
 };
+
+// Action creators and side effects
+export const coinsEffect = async (dispatch) => {
+  const response = await fetchCoins();
+  dispatch({ type: GET_COINS, payload: response.coins });
+};
+
+export const getCoinsData = (id) => async (dispatch) => {
+  const response = await fetchCoinsDetails(id);
+  dispatch({ type: GET_COIN_DETAILS, payload: response.markets_charts });
+};
