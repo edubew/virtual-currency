@@ -7,3 +7,8 @@ export const fetchCoins = async () => {
   const response = await axios.get(url);
   return response.data;
 };
+
+export const fetchCoinsDetails = async (id) => {
+  const response = await axios.get(`${url}/${id}/market_charts&limit=20`);
+  return response.data;
+};
