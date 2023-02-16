@@ -1,16 +1,29 @@
 import React from 'react';
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
+import { MdOutlineArrowBackIosNew } from 'react-icons/md';
+import { useSelector } from 'react-redux';
 
-const Navigation = () => (
-  <Header>
-    <div className="logo">
-      <h1>CRYPTO SPACE</h1>
-    </div>
-    <div className="search__bar">
-      <input type="text" placeholder="search coin..." />
-    </div>
-  </Header>
-);
+const Navigation = () => {
+  const coins = useSelector((state) => state.coins.coinsState);
+
+  return (
+    <Header>
+      <div>
+        {coins.length === 0
+          ? (
+            <Link to="/">
+              <MdOutlineArrowBackIosNew />
+            </Link>
+          ) : null }
+
+        <div>
+          <h1>CRYPTO SPACE</h1>
+        </div>
+      </div>
+    </Header>
+  );
+};
 
 const Header = styled.header`
 display: flex;
