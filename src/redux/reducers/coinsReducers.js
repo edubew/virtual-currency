@@ -8,12 +8,12 @@ export const coinsReducers = (state = initialState, action) => {
     case GET_COINS:
       return {
         ...state,
-        coinsState: [...action.payload],
+        coinsState: [...(action.payload || [])],
       };
     case GET_COIN_DETAILS:
       return {
         ...state,
-        dataState: [...action.payload],
+        dataState: [...(action.payload || [])],
       };
     default:
       return state;
@@ -22,11 +22,19 @@ export const coinsReducers = (state = initialState, action) => {
 
 // Action creators and side effects
 export const coinsEffect = async (dispatch) => {
-  const response = await fetchCoins();
-  dispatch({ type: GET_COINS, payload: response.coins });
+  try {
+    const response = await fetchCoins();
+    dispatch({ type: GET_COINS, payload: response.coins });
+  } catch (error) {
+    console.error('Error fetching coins:', error);
+  }
 };
 
-export const getCoinsData = (id) => async (dispatch) => {
-  const response = await fetchCoinsDetails(id);
-  dispatch({ type: GET_COIN_DETAILS, payload: response.markets_charts });
+export const getCoinDetails = (id) => async (dispatch) => {
+  try {
+    const response = await fetchCoinsDetails(id);
+    dispatch({ type: GET_COIN_DETAILS, payload: response.markets_charts });
+  } catch (error) {
+    console.error(`Error fetching coin details for id ${id}:`, error);
+  }
 };
