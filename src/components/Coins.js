@@ -1,118 +1,141 @@
+/* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable max-len */
+import React, { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { BiSearch } from 'react-icons/bi';
+import { coinsEffect } from '../redux/reducers/coinsReducers';
+
+const Coins = () => {
+  const [search, setSearch] = useState('');
+  const coins = useSelector((state) => state.coins.coins);
+  console.log('coins', coins);
+  const dispatch = useDispatch();
+
+  // const [loading, setLoading] = useState(true);
+  // const [error, setError] = useState(null);
+
+  useEffect(() => {
+    dispatch(coinsEffect());
+    // console.log(coinsEffect());
+  }, [dispatch]);
+
+  const filteredCoins = coins.filter((coin) => coin.name.toLowerCase().includes(search.toLowerCase()));
+
+  return (
+    <>
+      <div className="search__container">
+        <span>
+          <BiSearch />
+        </span>
+        <input
+          className="search__input"
+          type="text"
+          value={search}
+          placeholder="search..."
+          onChange={(e) => setSearch(e.target.value)}
+          autoComplete="off"
+        />
+      </div>
+
+      <div>
+        {filteredCoins.map((coin) => (
+          <div key={coin.id}>
+            <article>
+              <img src={coin.image} alt="coin" />
+              <p>{coin.market_cap_rank}</p>
+              <p>{coin.name}</p>
+              <p>{coin.market_cap}</p>
+            </article>
+          </div>
+        ))}
+        {search === '' && filteredCoins.length === 0 && <p>Please wait...</p>}
+
+        {search !== '' && filteredCoins.length === 0 && (
+        <p>
+          No Result Found for &apos;
+          {search}
+          &apos;
+        </p>
+        )}
+      </div>
+    </>
+  );
+};
+// export default Coins;
 // import React, { useEffect, useState } from 'react';
-// import { useDispatch, useSelector } from 'react-redux';
+// import { useSelector, useDispatch } from 'react-redux';
+// import { NavLink } from 'react-router-dom';
 // import { BiSearch } from 'react-icons/bi';
 // import { coinsEffect } from '../redux/reducers/coinsReducers';
+// // import Loading from './Loading';
 
 // const Coins = () => {
-//   const dispatch = useDispatch();
-//   const coins = useSelector((state) => state.coins.coinsState);
 //   const [search, setSearch] = useState('');
-
+//   const coins = useSelector((state) => state.coins.coinsState);
+//   const dispatch = useDispatch();
 //   useEffect(() => {
-//     dispatch(coinsEffect);
+//     dispatch(coinsEffect());
 //   }, [dispatch]);
 
-//   const filteredCoins = coins
-//     ? coins.filter((coin) => coin.name.toLowerCase().includes(search.toLowerCase()))
-//     : [];
+//   const handleSearch = (e) => {
+//     setSearch(e.target.value);
+//   };
+
+//   const filteredCoins = coins.filter((coin) => (
+//     coin.name.toLowerCase().includes(search.toLowerCase())
+//   ));
+
+//   {
+//     search === '' && filteredCoins.length === 0 && <p>Please wait...</p>;
+//   }
+
+//   {
+//     search !== '' && filteredCoins.length === 0 && (
+//     <p>
+//       No Result Found for &apos;
+//       {search}
+//       &apos;
+//     </p>
+//     );
+//   }
+
+// if (coins.isLoding || coins.isEror) {
+//   return <Loading />;
+// }
 
 //   return (
-//     <div>
-//       <div className="search__container">
-//         <span><BiSearch /></span>
+//     <header className="home-container">
+//       <div className="home-serch">
 //         <input
-// className="search__input"
-// type="text"
-// placeholder="search..."
-// onChange={(e) => setSearch(e.target.value)}
-// autoComplete="off" />
+//           type="text"
+//           value={search}
+//           placeholder="Search Coins..."
+//           onChange={handleSearch}
+//         />
 //       </div>
-//       <div className="cards__container">
-//         {filteredCoins.map((coin) => (
-//           <article key={coin.id}>
-//             <div className="img__symbol">
-//               <img src={coin.image} alt="avator" />
-//               <p>{coin.symbol}</p>
+//       <div className="home-list">
+//         {filteredCoins.length === 0 ? (
+//           <h1>No related coins found!</h1>
+//         ) : (
+//           filteredCoins.map((coin) => (
+//             <div key={coin.id} className="container-card">
+//               <img src={coin.image} alt={coin.name} />
+//               <div className="container-card-info">
+//                 <h1>{coin.name}</h1>
+//                 <p>
+//                   Market Cap: $
+//                   {coin.market_cap.toFixed(2)}
+//                 </p>
+//               </div>
+//               <NavLink to={`/details/${coin.id}`}>
+//                 <BiSearch className="link" />
+//               </NavLink>
 //             </div>
-//             <h3>{coin.name}</h3>
-//             <p>{coin.market_cap}</p>
-//           </article>
-//         ))}
+//           ))
+//         )}
 //       </div>
-//     </div>
+//     </header>
 //   );
 // };
 
-// export default Coins;
-
-import React, { useEffect, useState } from 'react';
-import axios from 'axios';
-// import { useDispatch } from 'react-redux';
-import { BiSearch } from 'react-icons/bi';
-// import { GET_COINS, GET_COIN_DETAILS } from '../redux/actions/coinActions';
-
-const Coins = () => {
-  const url = 'https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=20&page=1&sparkline=false';
-  // const dispatch = useDispatch();
-  const [coins, setCoins] = useState([]);
-  // const [data, setData] = useState([]);
-  const [search, setSearch] = useState('');
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
-  useEffect(() => {
-    const fetchCoins = async () => {
-      try {
-        const response = await axios.get(url);
-        setCoins(response.data);
-        setLoading(false);
-      } catch (error) {
-        setError(error);
-        setLoading(false);
-      }
-    };
-    fetchCoins();
-  }, [url]);
-  // const handleCoinClick = async (id) => {
-  //   try {
-  //     const response = await axios.get(`${url}/${id}/market_charts&limit=20`);
-  //     setData(response.data);
-  //     dispatch({ type: GET_COIN_DETAILS, payload: response.markets_charts });
-  //   } catch (error) {
-  //     console.error(`Error fetching coin details for id ${id}:`, error);
-  //   }
-  // };
-  // onClick={() => handleCoinClick(coin.id)}
-  const filteredCoins = coins.filter((coin) => coin.name.toLowerCase().includes(search.toLowerCase()));
-  const coinList = filteredCoins.map((coin) => (
-    <div key={coin.id}>
-      <article>
-        <img src={coin.image} alt="coin" />
-        <p>{coin.market_cap_rank}</p>
-        <p>{coin.name}</p>
-        <p>{coin.market_cap}</p>
-      </article>
-    </div>
-  ));
-  return (
-    <div>
-      <div className="search">
-        <BiSearch className="search-icon" />
-        <input
-          type="text"
-          placeholder="Search"
-          className="search-input"
-          onChange={(e) => setSearch(e.target.value)}
-        />
-      </div>
-      {error ? (
-        <p>{error.message}</p>
-      ) : loading ? (
-        <p>Loading...</p>
-      ) : (
-        <div className="coin-list">{coinList}</div>
-      )}
-    </div>
-  );
-};
 export default Coins;
