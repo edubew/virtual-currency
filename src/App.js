@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 import { Route, Routes } from 'react-router-dom';
 import Navigation from './components/Navigation';
 import Coins from './components/Coins';
-// import CoinDetails from './components/CoinDetails';
+import CoinDetails from './components/CoinDetails';
 
 const App = () => {
   const coinsObj = useSelector((state) => state.coins.coinsState);
@@ -12,7 +12,7 @@ const App = () => {
       <Navigation />
       <Routes>
         <Route path="/" element={<Coins coins={coinsObj} />} />
-        {/* <Route path="/:name/:id" element={<CoinDetails />} /> */}
+        <Route path="coins/:id" element={<CoinDetails />} />
       </Routes>
     </>
   );

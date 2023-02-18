@@ -10,40 +10,33 @@ export const coinsReducers = (state = initialState, action) => {
         ...state,
         coinsState: action.payload,
       };
-    // case GET_COIN_DETAILS:
-    //   return {
-    //     ...state,
-    //     dataState: [...(action.payload || [])],
-    //   };
+    case GET_COIN_DETAILS:
+      return {
+        ...state,
+        dataState: action.payload,
+      };
     default:
       return state;
   }
 };
 
 // Action creators and side effects
-export const coinsEffect = () => async () => {
-  let data = [];
+export const coinsEffect = () => async (dispatch) => {
   try {
-    const response = await fetchCoins();
-    console.log('response', response);
-    // dispatch({ type: GET_COINS, payload: response.data });
-    data = response;
-    // console.log('response', response.data);
-    // return response.data;
+    const data = await fetchCoins();
+    dispatch({ type: GET_COINS, payload: data });
+    return data;
   } catch (error) {
-    // return Promise.reject(error);
-    console.error('Error fetching coins:', error);
+    return Promise.reject(error);
   }
-  // return data;
-  console.log(data);
 };
-// console.log(coinsEffect());
 
 export const getCoinDetails = (id) => async (dispatch) => {
   try {
-    const response = await fetchCoinsDetails(id);
-    dispatch({ type: GET_COIN_DETAILS, payload: response.coins });
+    const data = await fetchCoinsDetails(id);
+    dispatch({ type: GET_COIN_DETAILS, payload: data });
+    return data;
   } catch (error) {
-    console.error(`Error fetching coin details for id ${id}:`, error);
+    return Promise.reject(error);
   }
 };
