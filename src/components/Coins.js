@@ -1,7 +1,6 @@
 /* eslint-disable max-len */
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { BiSearch } from 'react-icons/bi';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { coinsEffect } from '../redux/reducers/coinsReducers';
@@ -20,9 +19,6 @@ const Coins = () => {
   return (
     <Div>
       <div className="search__container">
-        <span>
-          <BiSearch className="search__icon" />
-        </span>
         <input
           className="search__input"
           type="text"
@@ -37,14 +33,12 @@ const Coins = () => {
         {filteredCoins.map((coin) => (
           <div key={coin.id}>
             <Link to={`/coins/${coin.id}`}>
-              <div id="list">
-                <article className="card">
-                  <img src={coin.image} alt="coin" />
-                  <p>{coin.market_cap_rank}</p>
-                  <p>{coin.name}</p>
-                  <p>{coin.market_cap}</p>
-                </article>
-              </div>
+              <article>
+                <img src={coin.image} alt="coin" />
+                <p>{coin.market_cap_rank}</p>
+                <p>{coin.name}</p>
+                <p>{coin.market_cap}</p>
+              </article>
             </Link>
           </div>
         ))}
@@ -66,7 +60,7 @@ export default Coins;
 
 const Div = styled.div`
   .search__container {
-    margin: 2% 30%;
+    margin: 2% 10%;
 
     .search__icon {
       font-size: 2rem;
@@ -99,17 +93,10 @@ const Div = styled.div`
     article {
       padding: 1rem;
       box-shadow: 0 3px 8px black;
-      text-decoration: none;
-      list-style: none;
-
-      @media screen and (max-width: 600px) {
-        box-shadow: none;
-        border: 1px solid black;
-      }
 
       img {
-        width: 14rem;
-        margin: 0 15%;
+        width: 12rem;
+        margin: 0 5%;
 
         @media screen and (max-width: 600px) {
           width: 6rem;

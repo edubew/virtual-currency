@@ -83,7 +83,6 @@ const Div = styled.div`
       @media screen and (max-width: 600px) {
         width: 12rem;
       }
-      
     }
     h3 {
       font-size: 1.8rem;
