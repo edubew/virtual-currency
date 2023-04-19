@@ -31,7 +31,7 @@ const Coins = () => {
 
       <div className="coin__grid">
         {filteredCoins.map((coin) => (
-          <div key={coin.id}>
+          <div key={coin.id} className="grid__layout">
             <Link to={`/coins/${coin.id}`}>
               <article>
                 <img src={coin.image} alt="coin" />
@@ -60,7 +60,7 @@ export default Coins;
 
 const Div = styled.div`
   .search__container {
-    margin: 2% 10%;
+    margin: 2% 15%;
 
     .search__icon {
       font-size: 2rem;
@@ -73,7 +73,7 @@ const Div = styled.div`
       width: 70%;
       border-radius: 2rem;
       border: 1px solid black;
-      color: black;
+      color: white;
       background-color: transparent;
     }
   }
@@ -82,21 +82,32 @@ const Div = styled.div`
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 2rem;
-    margin: 1rem 2rem;
+    margin: 2% 5%;
+
+    @media screen and (max-width: 1000px) {
+      grid-template-columns: repeat(3, 1fr);
+    }
 
     @media screen and (max-width: 600px) {
       grid-template-columns: repeat(2, 1fr);
-      margin: 1rem;
       gap: 0;
     }
 
     article {
       padding: 1rem;
-      box-shadow: 0 3px 8px black;
+      margin: 0.8rem;
+      box-shadow: 0 2px 8px rgb(30, 27, 223);
+      border-radius: 0.8rem;
+
+      @media screen and (max-width: 600px) {
+        padding: 1rem;
+        margin: 0;
+        box-shadow: none;
+        border-radius: 0%;
+      }
 
       img {
-        width: 12rem;
-        margin: 0 5%;
+        width: 6rem;
 
         @media screen and (max-width: 600px) {
           width: 6rem;
@@ -107,7 +118,8 @@ const Div = styled.div`
       p {
         color: #fff;
         font-size: 1.4rem;
-        text-align: center;
+        text-align: right;
+        padding: 0 0.8rem;
 
         @media screen and (max-width: 600px) {
           font-size: 1.2rem;

@@ -29,7 +29,7 @@ const Header = styled.header`
 display: flex;
 justify-content: space-between;
 background-color: #001b48;
-padding: 2rem 3rem;
+padding: 2rem;
 
 .search__bar {
   input {
