@@ -4,10 +4,13 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { FiArrowDownLeft, FiArrowUpRight } from 'react-icons/fi';
+import { TiMicrophone } from 'react-icons/ti';
+import { IoIosSettings } from 'react-icons/io';
 import { coinsEffect } from '../redux/reducers/coinsReducers';
+import SearchBox from './SearchBox';
 
 const Coins = () => {
-  const [search] = useState('');
+  const [search, setSearch] = useState('');
   const coins = useSelector((state) => state.coins.coinsState);
   const dispatch = useDispatch();
 
@@ -18,17 +21,17 @@ const Coins = () => {
   const filteredCoins = coins.filter((coin) => coin.name.toLowerCase().includes(search.toLowerCase()));
 
   return (
-    <Div>
-      {/* <div className="search__container">
-        <input
-          className="search__input"
-          type="text"
-          value={search}
-          placeholder="search..."
-          onChange={(e) => setSearch(e.target.value)}
-          autoComplete="off"
-        />
-      </div> */}
+    <Section>
+      <div className="navbar">
+        <h1 className="brand__name">
+          <Link to="/">Crypto Space</Link>
+        </h1>
+        <SearchBox search={search} setSearch={setSearch} />
+        <div className="nav__icons">
+          <TiMicrophone />
+          <IoIosSettings />
+        </div>
+      </div>
 
       <div className="coin__grid">
         {filteredCoins.map((coin) => (
@@ -68,29 +71,38 @@ const Coins = () => {
           </p>
         )}
       </div>
-    </Div>
+    </Section>
   );
 };
 
 export default Coins;
 
-const Div = styled.div`
-  .search__container {
-    margin: 2% 15%;
+const Section = styled.section`
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    // gap: 1.3px;
+    align-items: center;
+    flex-wrap: wrap;
+    background-color: #001b48;
+    padding: 1.1rem;
 
-    .search__icon {
-      font-size: 2rem;
-      color: black;
+    .brand__name a {
+      color: #fff;
+
+      @media screen and (max-width: 600px) {
+        font-size: 1.1rem;
+      }
     }
 
-    .search__input {
-      padding: 0.8rem;
-      outline: none;
-      width: 70%;
-      border-radius: 2rem;
-      border: 1px solid black;
-      color: white;
-      background-color: transparent;
+    .nav__icons {
+      display: flex;
+      font-size: 1.1rem;
+      gap: 0.8rem;
+
+      @media screen and (max-width: 600px) {
+        font-size: 0.8rem;
+      }
     }
   }
 
