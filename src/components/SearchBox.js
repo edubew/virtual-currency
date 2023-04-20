@@ -10,7 +10,7 @@ const SearchBox = ({ search, setSearch }) => (
       type="text"
       value={search}
       onChange={(e) => setSearch(e.target.value.toLowerCase())}
-      placeholder="Search Crypto by name..."
+      placeholder="Search crypto by name..."
       maxLength={50}
     />
   </form>

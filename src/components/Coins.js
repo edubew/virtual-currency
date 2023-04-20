@@ -3,10 +3,11 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
+import { FiArrowDownLeft, FiArrowUpRight } from 'react-icons/fi';
 import { coinsEffect } from '../redux/reducers/coinsReducers';
 
 const Coins = () => {
-  const [search, setSearch] = useState('');
+  const [search] = useState('');
   const coins = useSelector((state) => state.coins.coinsState);
   const dispatch = useDispatch();
 
@@ -18,7 +19,7 @@ const Coins = () => {
 
   return (
     <Div>
-      <div className="search__container">
+      {/* <div className="search__container">
         <input
           className="search__input"
           type="text"
@@ -27,7 +28,7 @@ const Coins = () => {
           onChange={(e) => setSearch(e.target.value)}
           autoComplete="off"
         />
-      </div>
+      </div> */}
 
       <div className="coin__grid">
         {filteredCoins.map((coin) => (
@@ -35,9 +36,24 @@ const Coins = () => {
             <Link to={`/coins/${coin.id}`}>
               <article>
                 <img src={coin.image} alt="coin" />
-                <p>{coin.market_cap_rank}</p>
                 <p>{coin.name}</p>
-                <p>{coin.market_cap}</p>
+                <p>
+                  $
+                  {coin.current_price}
+                </p>
+                {coin.price_change_percentage_24h < 0 ? (
+                  <p className="red">
+                    <FiArrowDownLeft />
+                    {coin.price_change_percentage_24h}
+                    %
+                  </p>
+                ) : (
+                  <p className="green">
+                    <FiArrowUpRight />
+                    {coin.price_change_percentage_24h}
+                    %
+                  </p>
+                )}
               </article>
             </Link>
           </div>
@@ -113,6 +129,17 @@ const Div = styled.div`
           width: 6rem;
           margin: 0 10%;
         }
+      }
+
+      .red {
+        color: red;
+        font-size: 1rem;
+        font-weight: bolder;
+      }
+
+      .green {
+        color: green;
+        font-size: 1rem;
       }
 
       p {

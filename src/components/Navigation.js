@@ -1,30 +1,25 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
-import { MdOutlineArrowBackIosNew } from 'react-icons/md';
-import { useSelector } from 'react-redux';
+import { TiMicrophone } from 'react-icons/ti';
+import { IoIosSettings } from 'react-icons/io';
+import SearchBox from './SearchBox';
+// import { Link } from 'react-router-dom';
+// import { MdOutlineArrowBackIosNew } from 'react-icons/md';
+// import { useSelector } from 'react-redux';
 
-const Navigation = () => {
-  const coins = useSelector((state) => state.coins.coinsState);
-
-  return (
-    <Header>
+const Navigation = () => (
+// const coins = useSelector((state) => state.coins.coinsState);
+  <Header>
+    <div>
       <div>
-        {coins.length === 0
-          ? (
-            <Link to="/">
-              <MdOutlineArrowBackIosNew />
-            </Link>
-          ) : null }
-
-        <div>
-          <h1>CRYPTO SPACE</h1>
-        </div>
+        <h1>CRYPTO SPACE</h1>
+        <SearchBox />
+        <TiMicrophone />
+        <IoIosSettings />
       </div>
-    </Header>
-  );
-};
-
+    </div>
+  </Header>
+);
 const Header = styled.header`
 display: flex;
 justify-content: space-between;
