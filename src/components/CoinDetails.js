@@ -50,6 +50,10 @@ const CoinDetails = () => {
             <table key={coins.id}>
               <tbody>
                 <tr>
+                  <td>Rank</td>
+                  <td>{coins.market_cap_rank}</td>
+                </tr>
+                <tr>
                   <td>Genesis Date</td>
                   <td>{coins.genesis_date}</td>
                 </tr>

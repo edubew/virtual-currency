@@ -107,6 +107,12 @@ exports[`Test CoinDetails Component should render CoinDetails component 1`] = `
         <tbody>
           <tr>
             <td>
+              Rank
+            </td>
+            <td />
+          </tr>
+          <tr>
+            <td>
               Genesis Date
             </td>
             <td />
