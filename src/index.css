@@ -12,11 +12,13 @@ body {
 
 a {
   text-decoration: none;
+  color: #fff;
+  font-weight: bolder;
 }
 
 @media screen and (max-width: 600px) {
   .grid__layout:nth-child(4n),
   .grid__layout:nth-child(4n+1) {
-    background-color: #3d60a2;
+    background-color: #26619c;
   }
 }

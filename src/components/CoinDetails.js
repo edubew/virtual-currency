@@ -1,9 +1,12 @@
 import React, { useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
+import { TiMicrophone } from 'react-icons/ti';
+import { IoIosSettings } from 'react-icons/io';
+import { AiOutlineLeft } from 'react-icons/ai';
 import { useDispatch, useSelector } from 'react-redux';
 import styled from 'styled-components';
 import { getCoinDetails } from '../redux/reducers/coinsReducers';
-import currency from '../assets/currency.jpg';
+import image from '../assets/image.jpg';
 
 const CoinDetails = () => {
   const params = useParams();
@@ -18,12 +21,24 @@ const CoinDetails = () => {
 
   return (
     <Div>
+      <div className="navbar">
+        <Link to="/">
+          <AiOutlineLeft className="arrow__left" />
+        </Link>
+        <h1 className="brand__name">
+          <Link to="/">Crypto Space</Link>
+        </h1>
+        <div className="nav__icons">
+          <TiMicrophone />
+          <IoIosSettings />
+        </div>
+      </div>
       {coins === [] ? (
         <p>Loading...</p>
       ) : (
         <div>
           <div className="header__container">
-            <img src={currency} alt="coin" />
+            <img src={image} alt="coin" />
             <div>
               <h3>{coins.name}</h3>
               <p>{coins.symbol}</p>
@@ -35,28 +50,30 @@ const CoinDetails = () => {
             <table key={coins.id}>
               <tbody>
                 <tr>
-                  <td>Market Cap Rank</td>
-                  <td>{coins.market_cap_rank}</td>
-                </tr>
-                <tr>
-                  <td>Coin Id</td>
-                  <td>{coins.id}</td>
-                </tr>
-                <tr>
-                  <td>Block Time in Minutes</td>
-                  <td>{coins.block_time_in_minutes}</td>
-                </tr>
-                <tr>
-                  <td>Hashing Algorithm</td>
-                  <td>{coins.hashing_algorithm}</td>
-                </tr>
-                <tr>
                   <td>Genesis Date</td>
                   <td>{coins.genesis_date}</td>
                 </tr>
                 <tr>
-                  <td>Liquidity Score</td>
-                  <td>{coins.liquidity_score}</td>
+                  <td>Votes Up Percentage</td>
+                  <td>
+                    {coins.sentiment_votes_up_percentage}
+                    %
+                  </td>
+                </tr>
+                <tr>
+                  <td>Votes Down Percentage</td>
+                  <td>
+                    {coins.sentiment_votes_down_percentage}
+                    %
+                  </td>
+                </tr>
+                <tr>
+                  <td>Portfolio Users</td>
+                  <td>{coins.watchlist_portfolio_users}</td>
+                </tr>
+                <tr>
+                  <td>Public Interest Score</td>
+                  <td>{coins.public_interest_score}</td>
                 </tr>
               </tbody>
             </table>
@@ -70,20 +87,54 @@ const CoinDetails = () => {
 export default CoinDetails;
 
 const Div = styled.div`
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  background-color: #001b48;
+  padding: 1.1rem;
+
+  .brand__name a {
+    color: #fff;
+    font-size: 1.5rem;
+
+    @media screen and (max-width: 600px) {
+      font-size: 1.1rem;
+    }
+  }
+
+  .arrow__left {
+    font-weight: bolder;
+    font-size: 1.5rem;
+  }
+
+  .nav__icons {
+    display: flex;
+    font-size: 1.1rem;
+    gap: 0.8rem;
+
+    @media screen and (max-width: 600px) {
+      font-size: 0.8rem;
+    }
+  }
+}
   .header__container {
     display: flex;
     gap: 1rem;
     justify-content: center;
     align-items: center;
-    text-align: center;
+    text-align: right;
+    padding: 2rem;
 
     img {
-      width: 24rem;
+      width: 20rem;
 
       @media screen and (max-width: 600px) {
         width: 12rem;
       }
     }
+
     h3 {
       font-size: 1.8rem;
       font-weight: bolder;
@@ -92,15 +143,16 @@ const Div = styled.div`
 
   .table__details {
     p {
-      text-align: center;
+      padding: 0 1rem;
       font-size: 1.5rem;
       font-weight: bolder;
+      background-color: #0047ab;
     }
 
     table {
-      border-colapse: collapse;
-      width: 80%;
-      margin: 0 10%;
+      border-collapse: collapse;
+      width: 100%;
+      font-weight: 500;
 
       @media screen and (max-width: 600px) {
         width: 100%;
@@ -109,17 +161,17 @@ const Div = styled.div`
     }
 
     td {
-      padding: 8px;
+      padding: 1.2rem;
     }
 
     tr {
       padding: 8px;
       font-size: 1.2rem;
-      background-color: #4167ad;
+      background-color: #26619c;
     }
 
     tr:nth-child(even) {
-      background-color: #3d60a2;
+      background-color: #0047ab;
     }
   }
 `;

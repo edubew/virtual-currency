@@ -19,7 +19,7 @@ const SearchBox = ({ search, setSearch }) => (
 
 SearchBox.propTypes = {
   search: PropTypes.string.isRequired,
-  setSearch: PropTypes.string.isRequired,
+  setSearch: PropTypes.func.isRequired,
 };
 
 export default SearchBox;

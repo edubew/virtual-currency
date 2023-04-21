@@ -18,7 +18,10 @@ const Coins = () => {
     dispatch(coinsEffect());
   }, [dispatch]);
 
-  const filteredCoins = coins.filter((coin) => coin.name.toLowerCase().includes(search.toLowerCase()));
+  // Search feature
+  const filteredCoins = search.trim()
+    ? [...coins].filter((coin) => coin.name.toLowerCase().includes(search))
+    : [...coins];
 
   return (
     <Section>
@@ -33,6 +36,22 @@ const Coins = () => {
         </div>
       </div>
 
+      {filteredCoins.length > 0 && (
+        <Link to={`/coins/${filteredCoins[0].id}`}>
+          <article className="filter__item">
+            <img src={filteredCoins[0].image} alt="coin" />
+            <div className="cotents">
+              <p>{filteredCoins[0].name}</p>
+              <p>
+                $
+                {filteredCoins[0].current_price}
+              </p>
+            </div>
+          </article>
+        </Link>
+      )}
+
+      <h1 className="title">Crypto Data</h1>
       <div className="coin__grid">
         {filteredCoins.map((coin) => (
           <div key={coin.id} className="grid__layout">
@@ -81,7 +100,6 @@ const Section = styled.section`
   .navbar {
     display: flex;
     justify-content: space-between;
-    // gap: 1.3px;
     align-items: center;
     flex-wrap: wrap;
     background-color: #001b48;
@@ -106,11 +124,32 @@ const Section = styled.section`
     }
   }
 
+  .filter__item {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-items: center;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    padding: 2rem 1rem;
+    font-size: 1.4rem;
+    background-color: #1560bd;
+
+    img {
+      width: 10rem;
+    }
+  }
+
+  .title {
+    font-size: 1.3rem;
+    padding: 0.6rem 0.2rem;
+  }
+
   .coin__grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 2rem;
-    margin: 2% 5%;
+    margin: 2% 0;
 
     @media screen and (max-width: 1000px) {
       grid-template-columns: repeat(3, 1fr);
@@ -119,6 +158,7 @@ const Section = styled.section`
     @media screen and (max-width: 600px) {
       grid-template-columns: repeat(2, 1fr);
       gap: 0;
+      background-color: #0047ab;
     }
 
     article {
@@ -144,13 +184,12 @@ const Section = styled.section`
       }
 
       .red {
-        color: red;
+        color: #800000;
         font-size: 1rem;
-        font-weight: bolder;
       }
 
       .green {
-        color: green;
+        color: #005c29;
         font-size: 1rem;
       }
 
