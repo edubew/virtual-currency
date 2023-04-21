@@ -94,8 +94,8 @@ After you're finished please remove all the comments and instructions!
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
-- [Live Demo Link](https://crypto-tracker-app.onrender.com/)
-- [Vide explaination Link]()
+- [Live Demo Link](https://virtual-currency.onrender.com)
+- [Video explaination Link]()
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -168,7 +168,7 @@ Example:
 
 ## 👥 Authors <a name="authors"></a>
 
-👤 **Tekhlay**
+👤 **Winfred Edube**
 
 - GitHub: [@edubew](https://github.com/edubew)
 - Twitter: [@edube_winne](https://twitter.com/edubew_winne)
@@ -208,7 +208,7 @@ I would like to thank
 
 - [x] @Microverse.
 - [x] Nelson Sakwa on Behance for the design.
-- [x] [Coinstats](coinstats.app) for providing free api.
+- [x] [CoinGecko](coinGecko.app) for providing free api.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
