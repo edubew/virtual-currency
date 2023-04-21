@@ -1,0 +1,147 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test CoinDetails Component should render CoinDetails component 1`] = `
+<div
+  className="sc-bcXHqe ipZdKn"
+>
+  <div
+    className="navbar"
+  >
+    <a
+      href="/"
+      onClick={[Function]}
+    >
+      <svg
+        className="arrow__left"
+        fill="currentColor"
+        height="1em"
+        stroke="currentColor"
+        strokeWidth="0"
+        style={
+          Object {
+            "color": undefined,
+          }
+        }
+        viewBox="0 0 1024 1024"
+        width="1em"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 0 0 0 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
+        />
+      </svg>
+    </a>
+    <h1
+      className="brand__name"
+    >
+      <a
+        href="/"
+        onClick={[Function]}
+      >
+        Crypto Space
+      </a>
+    </h1>
+    <div
+      className="nav__icons"
+    >
+      <svg
+        baseProfile="tiny"
+        fill="currentColor"
+        height="1em"
+        stroke="currentColor"
+        strokeWidth="0"
+        style={
+          Object {
+            "color": undefined,
+          }
+        }
+        version="1.2"
+        viewBox="0 0 24 24"
+        width="1em"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M12 16c2.206 0 4-1.795 4-4v-6c0-2.206-1.794-4-4-4s-4 1.794-4 4v6c0 2.205 1.794 4 4 4zM19 12v-2c0-.552-.447-1-1-1s-1 .448-1 1v2c0 2.757-2.243 5-5 5s-5-2.243-5-5v-2c0-.552-.447-1-1-1s-1 .448-1 1v2c0 3.52 2.613 6.432 6 6.92v1.08h-3c-.553 0-1 .447-1 1s.447 1 1 1h8c.553 0 1-.447 1-1s-.447-1-1-1h-3v-1.08c3.387-.488 6-3.4 6-6.92z"
+        />
+      </svg>
+      <svg
+        fill="currentColor"
+        height="1em"
+        stroke="currentColor"
+        strokeWidth="0"
+        style={
+          Object {
+            "color": undefined,
+          }
+        }
+        viewBox="0 0 512 512"
+        width="1em"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M416.3 256c0-21 13.1-38.9 31.7-46.1-4.9-20.5-13-39.7-23.7-57.1-6.4 2.8-13.2 4.3-20.1 4.3-12.6 0-25.2-4.8-34.9-14.4-14.9-14.9-18.2-36.8-10.2-55-17.3-10.7-36.6-18.8-57-23.7C295 82.5 277 95.7 256 95.7S217 82.5 209.9 64c-20.5 4.9-39.7 13-57.1 23.7 8.1 18.1 4.7 40.1-10.2 55-9.6 9.6-22.3 14.4-34.9 14.4-6.9 0-13.7-1.4-20.1-4.3C77 170.3 68.9 189.5 64 210c18.5 7.1 31.7 25 31.7 46.1 0 21-13.1 38.9-31.6 46.1 4.9 20.5 13 39.7 23.7 57.1 6.4-2.8 13.2-4.2 20-4.2 12.6 0 25.2 4.8 34.9 14.4 14.8 14.8 18.2 36.8 10.2 54.9 17.4 10.7 36.7 18.8 57.1 23.7 7.1-18.5 25-31.6 46-31.6s38.9 13.1 46 31.6c20.5-4.9 39.7-13 57.1-23.7-8-18.1-4.6-40 10.2-54.9 9.6-9.6 22.2-14.4 34.9-14.4 6.8 0 13.7 1.4 20 4.2 10.7-17.4 18.8-36.7 23.7-57.1-18.4-7.2-31.6-25.1-31.6-46.2zm-159.4 79.9c-44.3 0-80-35.9-80-80s35.7-80 80-80 80 35.9 80 80-35.7 80-80 80z"
+        />
+      </svg>
+    </div>
+  </div>
+  <div>
+    <div
+      className="header__container"
+    >
+      <img
+        alt="coin"
+        src="image.jpg"
+      />
+      <div>
+        <h3 />
+        <p />
+      </div>
+    </div>
+    <div
+      className="table__details"
+    >
+      <p>
+        Coin Details
+      </p>
+      <table>
+        <tbody>
+          <tr>
+            <td>
+              Genesis Date
+            </td>
+            <td />
+          </tr>
+          <tr>
+            <td>
+              Votes Up Percentage
+            </td>
+            <td>
+              %
+            </td>
+          </tr>
+          <tr>
+            <td>
+              Votes Down Percentage
+            </td>
+            <td>
+              %
+            </td>
+          </tr>
+          <tr>
+            <td>
+              Portfolio Users
+            </td>
+            <td />
+          </tr>
+          <tr>
+            <td>
+              Public Interest Score
+            </td>
+            <td />
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+`;
