@@ -29,8 +29,8 @@ const CoinDetails = () => {
           <Link to="/">Crypto Space</Link>
         </h1>
         <div className="nav__icons">
-          <TiMicrophone />
-          <IoIosSettings />
+          <TiMicrophone className="icon" />
+          <IoIosSettings className="icon" />
         </div>
       </div>
       {coins === [] ? (
@@ -46,7 +46,7 @@ const CoinDetails = () => {
           </div>
 
           <div className="table__details">
-            <p>Coin Details</p>
+            <p>Crypto Details</p>
             <table key={coins.id}>
               <tbody>
                 <tr>
@@ -115,11 +115,11 @@ const Div = styled.div`
 
   .nav__icons {
     display: flex;
-    font-size: 1.1rem;
+    font-size: 1.5rem;
     gap: 0.8rem;
 
     @media screen and (max-width: 600px) {
-      font-size: 0.8rem;
+      font-size: 1rem;
     }
   }
 }
