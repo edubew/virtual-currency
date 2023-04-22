@@ -1,21 +1,23 @@
 import React from 'react';
+import { render } from '@testing-library/react';
+import '@testing-library/jest-dom';
+import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
-import { BrowserRouter as Router } from 'react-router-dom';
-import renderer from 'react-test-renderer';
 import store from '../redux/configureStore';
 import CoinDetails from '../components/CoinDetails';
 
+window.scrollTo = jest.fn();
+
 describe('Test CoinDetails Component', () => {
-  it('should render CoinDetails component', () => {
-    const tree = renderer
-      .create(
+  it('should render CoinDetails component', async () => {
+    window.scrollTo.mockClear();
+    const component = render(
+      <BrowserRouter>
         <Provider store={store}>
-          <Router>
-            <CoinDetails />
-          </Router>
-        </Provider>,
-      )
-      .toJSON();
-    expect(tree).toMatchSnapshot();
+          <CoinDetails />
+        </Provider>
+      </BrowserRouter>,
+    );
+    expect(component.asFragment()).toMatchSnapshot();
   });
 });
