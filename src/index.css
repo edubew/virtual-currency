@@ -2,4 +2,23 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  overflow-x: hidden;
+}
+
+body {
+  background-color: #5384e0;
+  color: #eee;
+}
+
+a {
+  text-decoration: none;
+  color: #fff;
+  font-weight: bolder;
+}
+
+@media screen and (max-width: 600px) {
+  .grid__layout:nth-child(4n),
+  .grid__layout:nth-child(4n+1) {
+    background-color: #26619c;
+  }
 }
