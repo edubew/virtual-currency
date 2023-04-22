@@ -36,7 +36,7 @@ exports[`Test SearchBox Component should render SearchBox component 1`] = `
     className="search__input"
     maxLength={50}
     onChange={[Function]}
-    placeholder="Search crypto by name"
+    placeholder="Search by name..."
     type="text"
   />
 </form>

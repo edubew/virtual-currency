@@ -2,7 +2,7 @@
 
 exports[`Test CoinDetails Component should render CoinDetails component 1`] = `
 <div
-  className="sc-bcXHqe ipZdKn"
+  className="sc-bcXHqe gsEdkM"
 >
   <div
     className="navbar"
@@ -46,6 +46,7 @@ exports[`Test CoinDetails Component should render CoinDetails component 1`] = `
     >
       <svg
         baseProfile="tiny"
+        className="icon"
         fill="currentColor"
         height="1em"
         stroke="currentColor"
@@ -65,6 +66,7 @@ exports[`Test CoinDetails Component should render CoinDetails component 1`] = `
         />
       </svg>
       <svg
+        className="icon"
         fill="currentColor"
         height="1em"
         stroke="currentColor"
@@ -101,7 +103,7 @@ exports[`Test CoinDetails Component should render CoinDetails component 1`] = `
       className="table__details"
     >
       <p>
-        Coin Details
+        Crypto Details
       </p>
       <table>
         <tbody>
