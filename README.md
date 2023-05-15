@@ -51,9 +51,9 @@ After you're finished please remove all the comments and instructions!
 
 <!-- PROJECT DESCRIPTION -->
 
-# 📖 [Crypto Tracker] <a name="about-project"></a>
+# 📖 Virtual Currency <a name="about-project"></a>
 
-**Virtual Currency** Best global Coin Price Tracker in the Market With Crypto Tracker, you can manage all your crypto assets from one interface. It is a Single page application. It is developed using React Library and redux store. It allows users see current market value and price of different global digital currencies and search for a specfic digital coin. The system also generates full description of a spesfied crypto currency.
+**Virtual Currency** a single-page web-based application developed using React Library and redux store. It allows users to see the current market value and price of different global digital currencies and search for a specific digital coin. The system also generates a full description of a specified cryptocurrency. With Virtual Currency, you can manage all your crypto assets from one interface.
 
 ## 🛠 Built With <a name="built-with"></a>
 
