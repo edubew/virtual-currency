@@ -95,7 +95,6 @@ After you're finished please remove all the comments and instructions!
 ## 🚀 Live Demo <a name="live-demo"></a>
 
 - [Live Demo Link](https://virtual-currency.onrender.com)
-- [Video explaination Link](https://www.loom.com/share/98b15a0d2faa4c20b01a13edab20284f)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
