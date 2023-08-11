@@ -15,18 +15,3 @@ a {
   color: #fff;
   font-weight: bolder;
 }
-
-/* .drop__shadow {
-  box-shadow: -10px -10px 30px #fff, 10px 10px 30px rgba(174, 174, 192, 0.4);
-} */
-
-/* .inner__shadow {
-  box-shadow: inset -10px -10px 10px rgba(174, 174, 192, 0.25), inset 10px 10px 10px #ffffff;
-} */
-
-/* @media screen and (max-width: 600px) {
-  .grid__layout:nth-child(4n),
-  .grid__layout:nth-child(4n+1) {
-    background-color: #26619c;
-  }
-} */
