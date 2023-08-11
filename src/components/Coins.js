@@ -64,13 +64,13 @@ const Coins = () => {
                   {coin.current_price}
                 </p>
                 {coin.price_change_percentage_24h < 0 ? (
-                  <p className="red">
+                  <p className="percent">
                     <FiArrowDownLeft />
                     {coin.price_change_percentage_24h}
                     %
                   </p>
                 ) : (
-                  <p className="green">
+                  <p className="percent">
                     <FiArrowUpRight />
                     {coin.price_change_percentage_24h}
                     %
@@ -133,49 +133,46 @@ const Section = styled.section`
     width: 100%;
     padding: 2rem 1rem;
     font-size: 1.4rem;
-    background-color: #1560bd;
+    background-color: #015c92;
 
     img {
-      width: 10rem;
+      width: 8rem;
     }
   }
 
   .title {
     font-size: 1.3rem;
     padding: 0.6rem 0.2rem;
+    color: #f6bd03;
   }
 
   .coin__grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 2rem;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 1.2rem;
     margin: 2% 0;
 
     @media screen and (max-width: 1000px) {
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(4, 1fr);
     }
 
     @media screen and (max-width: 600px) {
       grid-template-columns: repeat(2, 1fr);
-      gap: 0;
-      background-color: #0047ab;
+      gap: 1rem;
     }
 
     article {
       padding: 1rem;
       margin: 0.8rem;
-      box-shadow: 0 2px 8px rgb(30, 27, 223);
+      box-shadow: -4px -4px 5px #010a3d, 5px 5px 5px #0a171a;
       border-radius: 0.8rem;
 
       @media screen and (max-width: 600px) {
         padding: 1rem;
-        margin: 0;
-        box-shadow: none;
-        border-radius: 0%;
       }
 
       img {
-        width: 6rem;
+        width: 5rem;
 
         @media screen and (max-width: 600px) {
           width: 6rem;
@@ -183,19 +180,14 @@ const Section = styled.section`
         }
       }
 
-      .red {
-        color: #800000;
-        font-size: 1rem;
-      }
-
-      .green {
-        color: #005c29;
+      .percent {
+        color: #f6bd03;
         font-size: 1rem;
       }
 
       p {
         color: #fff;
-        font-size: 1.4rem;
+        font-size: 1.2rem;
         text-align: right;
         padding: 0 0.8rem;
 

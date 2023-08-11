@@ -147,15 +147,17 @@ const Div = styled.div`
 
   .table__details {
     p {
-      padding: 0 1rem;
+      text-align: center;
+      padding: 0.8rem;
       font-size: 1.5rem;
       font-weight: bolder;
-      background-color: #0047ab;
+      color: #f6bd03;
     }
 
     table {
       border-collapse: collapse;
-      width: 100%;
+      width: 60%;
+      margin: auto auto 1rem;
       font-weight: 500;
 
       @media screen and (max-width: 600px) {
@@ -171,11 +173,11 @@ const Div = styled.div`
     tr {
       padding: 8px;
       font-size: 1.2rem;
-      background-color: #26619c;
+      background-color: #09567a;
     }
 
     tr:nth-child(even) {
-      background-color: #0047ab;
+      background-color: #015c92;
     }
   }
 `;
